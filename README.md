@@ -5,8 +5,12 @@ You will learn how to create your own QR code and decode QR codes from an image 
 * [What is QR code?](#what-is-qr-code)
 * [What information QR code takes?](#what-information-qr-code-takes)
 * [Installation](#installation)
-* [Procedure](#procedure)
-* [Python code for basic example](#python-code-for-basic-example)
+* [QR Code generator](#qr-code-generator)
+  - [Procedure](#procedure)
+  - [Python code for basic example](#python-code-for-basic-example)
+  - [Advanced usage](#advanced-usage)
+    - [Qr code class](#qr-code-class)
+    - [Error Correction constant](#error-correction-constant)
 
 ## What is QR code?
 A QR code is a type of barcode that can be read easily by a digital device and which stores information as a series of pixels in a square-shaped grid, which can be read by any imaging device such as a camera, and processed to extract the required data from the patterns that are present in the horizontal components of the image.
@@ -34,9 +38,71 @@ Once the installation is complete, create a new Python file and type the followi
 # importing the required module  
 import qrcode
 ```
+# QR Code generator
+
 ## Procedure
 * Import module
 * Create Qrcode with qrcode.make() and it returns a PilImage object.
 * Save into image
 
 ## Python code for basic example
+```python
+import qrcode
+
+# String which represent the QR code
+qrcode_generator = "QR code Generator"
+
+# Encoding data using make() function
+img = qrcode.make(qrcode_generator)
+
+# Create and save the image file by naming it
+img.save("Create_qr_code.png")
+```
+
+## Advanced usage
+You can utilize the QRCode class, which comes with a lot more controls and properties.
+
+```python
+import qrcode
+# creating a QRCode object  
+qr_object = qrcode.QRCode(  
+    version = 1,  
+    error_correction = qrcode.constants.ERROR_CORRECT_L,  
+    box_size = 10,  
+    border = 4,  
+)
+
+# using the add_data() function  
+qr_object.add_data("Advance use of QR code module") 
+
+# using the make() function  
+qr_object.make(fit = True)
+
+# using the make_image() function  
+qr_img = qr_object.make_image(fill_color = "red", back_color = "black")  
+
+# saving the QR code image  
+qr_img.save("advancedusage.png")
+```
+
+In the above snippet of code, we have imported the qrcode library. We have then created an instance of the QRCode class of the qrcode library. We have used different parameters in order to customize the QR code. We have then used the add_data() function to include the information for the QR code. We have also used the make() and make_image() functions to generate the QR code image. At last, we have saved the image file in the directory using the save() function.
+
+### QR code class
+* **version** — Accepts an integer from 1 to 40 which controls the size of the QR Code. The smallest version 1 has a dimension of 21 x 21.
+
+* **box_size** — Determines the number of pixels for each box of the QR code.
+
+* **border** — Determines the thickness of the border of the boxes. The default value is 4, which is the minimum size.
+
+* **error_correction** — Controls the error correction used.
+
+### Error Correction constant
+Error correction helps to improve the detection even when the image is disfigured or there is an overlay image on top of the QR Code. There are four constants available for error_correction:
+
+* **ERROR_CORRECT_L** — About 7% or fewer errors can be corrected.
+
+* **ERROR_CORRECT_M** — About 15% or fewer errors can be corrected. This is the default value.
+
+* **ERROR_CORRECT_Q** — About 25% or fewer errors can be corrected.
+
+* **ERROR_CORRECT_H** — About 30% or fewer errors can be corrected.
