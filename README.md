@@ -6,11 +6,13 @@ You will learn how to create your own QR code and decode QR codes from an image 
 * [What information QR code takes?](#what-information-qr-code-takes)
 * [Installation](#installation)
 * [QR Code generator](#qr-code-generator)
-  - [Procedure](#procedure)
+  - [Generating Procedure](#generating-procedure)
   - [Python code for basic example](#python-code-for-basic-example)
   - [Advanced usage](#advanced-usage)
     - [Qr code class](#qr-code-class)
     - [Error Correction constant](#error-correction-constant)
+* [QR Code Decoder](#qr-code-decoder)
+  - [Decoding Procedure](#decoding-procedure)
 
 ## What is QR code?
 A QR code is a type of barcode that can be read easily by a digital device and which stores information as a series of pixels in a square-shaped grid, which can be read by any imaging device such as a camera, and processed to extract the required data from the patterns that are present in the horizontal components of the image.
@@ -30,7 +32,9 @@ The QR codes themselves can’t be hacked – the security risks associated with
 ```python
 pip install qrcode
 ```
-
+```python
+pip instal opencv-Python
+```
 The package will be installed in the system as the version of Python and pip.
 
 Once the installation is complete, create a new Python file and type the following syntax in it.
@@ -38,9 +42,13 @@ Once the installation is complete, create a new Python file and type the followi
 # importing the required module  
 import qrcode
 ```
+```python
+# importing the required module  
+import cv2
+```
 # QR Code generator
 
-## Procedure
+## Generating Procedure
 * Import module
 * Create Qrcode with qrcode.make() and it returns a PilImage object.
 * Save into image
@@ -106,3 +114,8 @@ Error correction helps to improve the detection even when the image is disfigure
 * **ERROR_CORRECT_Q** — About 25% or fewer errors can be corrected.
 
 * **ERROR_CORRECT_H** — About 30% or fewer errors can be corrected.
+
+# QR Code Decoder
+
+## Decoding Procedure
+
