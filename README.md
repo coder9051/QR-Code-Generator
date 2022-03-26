@@ -1,4 +1,4 @@
-# QR-Code-Encoder-Decoder
+# QR-Code-Generator
 You will learn how to create your own QR code and decode QR codes from an image by reading this repository. You should be able to include QR code capabilities into your own Python application at the conclusion of this. For this project, I'm utilising the python-qrcode package.
 
 ## Content
@@ -11,8 +11,6 @@ You will learn how to create your own QR code and decode QR codes from an image 
   - [Advanced usage](#advanced-usage)
     - [Qr code class](#qr-code-class)
     - [Error Correction constant](#error-correction-constant)
-* [QR Code Decoder](#qr-code-decoder)
-  - [Decoding Procedure](#decoding-procedure)
 
 ## What is QR code?
 A QR code is a type of barcode that can be read easily by a digital device and which stores information as a series of pixels in a square-shaped grid, which can be read by any imaging device such as a camera, and processed to extract the required data from the patterns that are present in the horizontal components of the image.
@@ -115,7 +113,5 @@ Error correction helps to improve the detection even when the image is disfigure
 
 * **ERROR_CORRECT_H** — About 30% or fewer errors can be corrected.
 
-# QR Code Decoder
-
-## Decoding Procedure
-
+## Conclusion
+A QR code is a matrix type 2D barcode (also known as checkerboard type 2D barcode), which has been frequently used on mobile devices in recent years. Compared with traditional barcodes, it can store more information. A two-dimensional code uses a certain geometric figure to record data symbol information in a black and white pattern distributed on a plane (two-dimensional direction) according to a certain rule. It can record numbers, English letters, Chinese characters, Japanese letters, special symbols (such as spaces, %, / etc.), binary information and other information into a square picture. In the position of the corresponding element of the matrix, the appearance of dots (square dots, dots or other shapes) is used to represent binary “1”, and the absence of dots represents binary “0”. The permutation and combination of points determine the meaning of the matrix two-dimensional bar code.
